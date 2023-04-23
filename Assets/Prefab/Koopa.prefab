@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 594320142832377205}
   - component: {fileID: 6431259984365786415}
   - component: {fileID: 4817280061077838288}
-  m_Layer: 0
+  - component: {fileID: -1480716872746216106}
+  - component: {fileID: -5441375609482235781}
+  - component: {fileID: -1026827201690366952}
+  m_Layer: 8
   m_Name: Koopa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 436c793687a1ae146b46b4a40c7d8ac7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,3 +102,60 @@ CircleCollider2D:
   m_Offset: {x: 0.017213702, y: -0.18689191}
   serializedVersion: 2
   m_Radius: 0.5458944
+--- !u!50 &-1480716872746216106
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937449510943479673}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: e9945a1543566274cb9e0b806b2c89b7, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!114 &-5441375609482235781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937449510943479673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49332955fcf98a9449e93e0d1b4e2ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: -1, y: 0}
+  velocity: {x: 0, y: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 576
+  speed: 2.5
+  active: 1
+--- !u!114 &-1026827201690366952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937449510943479673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a6e7626bcdbf547be8dee6f1e1b67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stompedSprite: {fileID: 21300000, guid: 8f15f0f449a829f4e9575cc4e172fa1a, type: 3}
+  run:
+  - {fileID: 21300000, guid: 436c793687a1ae146b46b4a40c7d8ac7, type: 3}
+  - {fileID: 21300000, guid: 6c3a7be844bb03042be0e984554d62b1, type: 3}
+  shelled: 0

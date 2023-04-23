@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     SpriteRenderer spriteRenderer;
     PlayerController controller;
     
+    public Sprite touched;
     public Sprite idle;
     public Sprite jump;
     public Sprite slide;
@@ -14,6 +15,8 @@ public class PlayerAnimation : MonoBehaviour
 
     int currentSprite = 0;
     bool runAnimating = false;
+    
+    public bool active = true;
 
 
     void Start()
@@ -24,6 +27,7 @@ public class PlayerAnimation : MonoBehaviour
 
     void LateUpdate()
     {   
+        if(!active) return;
         if(controller.jumping)
         {
             CancelInvoke();
@@ -59,5 +63,11 @@ public class PlayerAnimation : MonoBehaviour
         if(currentSprite >= run.Count) currentSprite = 0;
 
         spriteRenderer.sprite = run[currentSprite];
+    }
+
+    public void Touched()
+    {
+        CancelInvoke();
+        spriteRenderer.sprite = touched;
     }
 }

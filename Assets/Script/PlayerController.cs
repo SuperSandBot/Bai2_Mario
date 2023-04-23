@@ -2,32 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Extenstions
-{
-    public static bool RayCastCheck(this Rigidbody2D rigidbody2D, Vector2 dir,LayerMask layerMask)
-    {
-        if(rigidbody2D.isKinematic) return false;
-
-        RaycastHit2D hit = Physics2D.CircleCast(rigidbody2D.position, 0.25f, dir.normalized, .375f, layerMask);
-        return hit.collider != null;
-    }
-
-    public static bool DotTest(this Transform transform, Transform other, Vector2 testDirection)
-    {
-        Vector2 direction = transform.position - other.position;
-        return Vector2.Dot(direction.normalized,testDirection) > .00001f;
-    }
-}
-
 public class PlayerController : MonoBehaviour
 {
-
-    CapsuleCollider2D capsuleCollider2D;
     new Rigidbody2D rigidbody2D;
     public Vector2 velocity;
     Camera cam;
     public LayerMask layerMask;
-    Animator animator;
 
     public float speed;
     public float maxJumpHeight;
@@ -41,19 +21,18 @@ public class PlayerController : MonoBehaviour
     public bool running  => (Mathf.Abs(velocity.x) > .25f || Mathf.Abs(inputAxis) > .25f);
     public bool sliding => ((inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f));
 
-    
+    public bool active  = true;
 
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         velocity = Vector2.zero;
         cam = Camera.main;
     }
 
     void Update()
     {
+        if(!active) return;
         Movement();
         if(grounded)
         {
@@ -86,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!active) return;
         Vector2 pos = rigidbody2D.position;
         pos += velocity * Time.fixedDeltaTime;
         Vector2 leftEdge = cam.ScreenToWorldPoint(Vector2.zero);
@@ -106,13 +86,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnCollisionEnter2D(Collision2D other) 
+    {   
+        if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            if(this.transform.DotTest(other.transform,Vector2.down))
+            {
+                velocity.y = JumpForce / 2f;
+            }
+        }
 
         if(other.gameObject.layer == LayerMask.NameToLayer("PowerUp")) return;
-        if(transform.DotTest(other.transform,Vector2.up))
+        if(this.transform.DotTest(other.transform,Vector2.up))
         {
             velocity.y = 0f;
-        }
+        } 
     }
     
 }
