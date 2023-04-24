@@ -80,7 +80,8 @@ public class Koopa : MonoBehaviour
                     }
                     else 
                     {
-                        ShellMovement(new Vector2(transform.position.x - player.transform.position.x,0));
+                        if(transform.position.x - player.transform.position.x > 0) ShellMovement(Vector2.right);
+                        else ShellMovement(Vector2.left);       
                     }
                 }
                 else

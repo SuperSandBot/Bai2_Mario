@@ -40,6 +40,18 @@ public class EnemyController : MonoBehaviour
         velocity = Vector2.zero;
         rigidbody2D.Sleep();    
     }
+ 
+    public void flip()
+    {
+        if(velocity.x > 0f)
+        {
+            transform.eulerAngles = Vector3.zero;
+        }
+        else if(velocity.x < 0f)
+        {
+            transform.eulerAngles = new Vector3(0,180f,0);
+        }
+    }
 
     void FixedUpdate()
     {
@@ -52,6 +64,7 @@ public class EnemyController : MonoBehaviour
         if(rigidbody2D.RayCastCheck(direction,layerMask))
         {
             direction = -direction;
+            flip();
         }
 
         if(rigidbody2D.RayCastCheck(Vector2.down,layerMask))

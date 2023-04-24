@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1480716872746216106, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
       propertyPath: m_Mass
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
       propertyPath: m_RootOrder
@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.82
+      value: 20.23
       objectReference: {fileID: 0}
     - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6468,75 +6468,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &435702495
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -1480716872746216106, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 594320142832377205, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4817280061077838288, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_Radius
-      value: 0.5031804
-      objectReference: {fileID: 0}
-    - target: {fileID: 4817280061077838288, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.22960591
-      objectReference: {fileID: 0}
-    - target: {fileID: 8937449510943479673, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
-      propertyPath: m_Name
-      value: Koopa (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e5bb72d92df352e41b8ec9867a49e4c9, type: 3}
 --- !u!1001 &510597558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6763,7 +6694,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   speed: 9
   maxJumpHeight: 4.5
   maxJumpTime: 1
