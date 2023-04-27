@@ -136,7 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: -1, y: 0}
-  velocity: {x: 0, y: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 576

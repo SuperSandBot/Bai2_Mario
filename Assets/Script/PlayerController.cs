@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    new Rigidbody2D rigidbody2D;
+    public new Rigidbody2D rigidbody2D;
     public Vector2 velocity;
     Camera cam;
     public LayerMask layerMask;
@@ -86,21 +86,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    void OnCollisionEnter2D(Collision2D other) 
     {   
+        
+        if(other.gameObject.layer == LayerMask.NameToLayer("PowerUp")) return;
         if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            if(this.transform.DotTest(other.transform,Vector2.down))
+            if(other.transform.DotTest(this.transform,Vector2.down))
             {
                 velocity.y = JumpForce / 2f;
             }
         }
-
-        if(other.gameObject.layer == LayerMask.NameToLayer("PowerUp")) return;
-        if(this.transform.DotTest(other.transform,Vector2.up))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Platform"))
         {
-            velocity.y = 0f;
-        } 
+            if(other.transform.DotTest(this.transform,Vector2.up))
+            {
+                velocity.y = 0f;
+            } 
+        }
     }
     
 }

@@ -69,6 +69,11 @@ public class Koopa : MonoBehaviour
         Player player = other.gameObject.GetComponent<Player>();
         if(player != null)
         {
+            if(player.starPower)
+            {
+                DeathAnimate();
+                return;
+            }
             if(this.transform.DotTest(player.transform,Vector2.down))
             {
                 if(shelled)

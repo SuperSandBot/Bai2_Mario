@@ -64,6 +64,11 @@ public class Goomba : MonoBehaviour
         Player player = other.gameObject.GetComponent<Player>();
         if(player != null)
         {
+            if(player.starPower)
+            {
+                DeathAnimate();
+                return;
+            }
             if(this.transform.DotTest(player.transform,Vector2.down))
             {
                 Stomped();

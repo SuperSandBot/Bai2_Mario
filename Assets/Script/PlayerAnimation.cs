@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     PlayerController controller;
     
     public Sprite touched;
@@ -65,7 +66,7 @@ public class PlayerAnimation : MonoBehaviour
         spriteRenderer.sprite = run[currentSprite];
     }
 
-    public void Touched()
+    public void Death()
     {
         CancelInvoke();
         spriteRenderer.sprite = touched;

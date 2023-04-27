@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     new Rigidbody2D rigidbody2D;
     float gravity = -9.81f;
     public Vector2 direction;
-    public Vector2 velocity;
+    Vector2 velocity;
     public LayerMask layerMask;
     public float speed;
 

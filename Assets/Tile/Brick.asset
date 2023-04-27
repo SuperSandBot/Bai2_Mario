@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Brick
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 21300000, guid: f9ce8610ab41e614eb0bd895a904aa95, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 4292403938299697691, guid: b0d3b357fd89bb94190026e36c22295e, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []

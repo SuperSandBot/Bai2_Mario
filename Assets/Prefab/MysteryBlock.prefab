@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3892538765985258997}
   - component: {fileID: 1293317981635953641}
   - component: {fileID: 218949226135513608}
+  - component: {fileID: -8324071824813849213}
   m_Layer: 6
   m_Name: MysteryBlock
   m_TagString: Untagged
@@ -109,3 +110,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8324071824813849213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795726944953495410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0ed0f6c0fbb94409b8bd42e8fe8b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitCount: 1
+  emptyBlock: {fileID: 21300000, guid: c1a3d0aab020d8141a753fcd0ce42335, type: 3}
+  unBreakAble: 1
+  hidden: 0

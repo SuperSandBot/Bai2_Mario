@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MysteryBlock
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 21300000, guid: 57a8f6ef83bb34645909166b18e2f6d6, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 1795726944953495410, guid: 75d8aa089c8ed8343a1eda5ca622446c, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []
