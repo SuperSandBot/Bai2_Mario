@@ -10,6 +10,7 @@ public class Star : PowerUp
         if(player != null)
         {        
             Eated();
+            GameManager.Instance.AddScore(1000,transform.position);
             player.StarPowerOn();
         }
     }

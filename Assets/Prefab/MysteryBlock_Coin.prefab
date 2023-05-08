@@ -126,4 +126,7 @@ MonoBehaviour:
   emptyBlock: {fileID: 21300000, guid: c1a3d0aab020d8141a753fcd0ce42335, type: 3}
   unBreakAble: 1
   hidden: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
   coinPrefab: {fileID: 830077005765940341, guid: b7d2ca51daa86034d825467757290e23, type: 3}

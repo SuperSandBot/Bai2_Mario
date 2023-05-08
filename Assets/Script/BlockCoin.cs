@@ -6,11 +6,12 @@ using UnityEngine;
 public class BlockCoin : Block
 {
     public GameObject coinPrefab;
-    public override void BlockOnHit()
+    public override void BlockHit()
     {
         CoinHitAnimate();
-        base.BlockOnHit();
+        base.BlockHit();
         GameManager.Instance.AddCoin();
+        GameManager.Instance.AddScoreRaw(200);
     }
 
     public async void CoinHitAnimate()

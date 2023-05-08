@@ -6,9 +6,9 @@ public class BlockPowerUp : Block
 {
     public GameObject mushroomPrefab;
     public float animateDuration = 0.65f;
-    public override void BlockOnHit()
+    public override void BlockHit()
     {
-        base.BlockOnHit();
+        base.BlockHit();
         PowerUpAnimate();
     }
 

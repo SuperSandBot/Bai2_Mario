@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(GameManager.Instance.running == false) return;
         if(!active) return;
         velocity.x = direction.x * speed;
         velocity.y += gravity * Time.fixedDeltaTime;

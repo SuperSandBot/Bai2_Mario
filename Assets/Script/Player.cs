@@ -13,9 +13,10 @@ public class Player : MonoBehaviour
     public bool changing = false;
     public bool starPower = false;
     public float powerDuration = 10f;
-
+    
     void Start()
     {
+        GameManager.Instance.player = this;
         playerController = GetComponent<PlayerController>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         miniMario = transform.GetChild(0).GetComponent<PlayerAnimation>();
@@ -34,9 +35,23 @@ public class Player : MonoBehaviour
             miniMario.active = false;
             bigMario.active = false;
             capsuleCollider2D.enabled = false;
-            miniMario.Death();
-            Invoke(nameof(DeathAnimate),0);
+            DeathAnimate(13f);
         }
+    }
+
+    public void ForceDeath()
+    {
+        if(IsBig)
+        { 
+            miniMario.spriteRenderer.enabled = true;
+            bigMario.spriteRenderer.enabled = false;
+        }
+
+        playerController.active = false;
+        miniMario.active = false;
+        bigMario.active = false;
+        capsuleCollider2D.enabled = false;
+        DeathAnimate(30f);
     }
 
     public void PowerUp()
@@ -75,11 +90,11 @@ public class Player : MonoBehaviour
         await TransferAnimate();
         miniMario.spriteRenderer.enabled = false;
         bigMario.spriteRenderer.enabled = true;
-        capsuleCollider2D.offset = new Vector2(0,0.5f);
-        capsuleCollider2D.size = new Vector2(0.9f,2);
+        capsuleCollider2D.offset = new Vector2(0,0.4f);
+        capsuleCollider2D.size = new Vector2(0.8f,1.8f);
         playerController.active = true;
         playerController.rigidbody2D.isKinematic = false;
-        await Task.Delay(200);
+        await Task.Delay(500);
         changing = false;
     }
 
@@ -93,17 +108,17 @@ public class Player : MonoBehaviour
         miniMario.spriteRenderer.enabled = true;
         bigMario.spriteRenderer.enabled = false;
         capsuleCollider2D.offset = new Vector2(0,0);
-        capsuleCollider2D.size = new Vector2(0.8f,1);
+        capsuleCollider2D.size = new Vector2(0.7f,1);
         playerController.active = true;
         playerController.rigidbody2D.isKinematic = false;
-        await Task.Delay(200);
+        await Task.Delay(500);
         changing = false;
     }
 
-    public async void DeathAnimate()
+    public async void DeathAnimate(float jumpHeight)
     {
+        miniMario.Death();
         float elapsed = 0f;
-        float jumpHeight = 10f;
         float gravity = -36f;
 
         Vector3 velocity = Vector2.up * jumpHeight;
@@ -116,6 +131,7 @@ public class Player : MonoBehaviour
             await Task.Yield();
         }
         Destroy(this.gameObject, 0.5f);
+        GameManager.Instance.OnDeath();
     }
     
     public async Task TransferAnimate()

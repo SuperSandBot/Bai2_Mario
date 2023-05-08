@@ -15,7 +15,7 @@ public static class Extenstions
     public static bool DotTest(this Transform transform, Transform other, Vector2 testDirection)
     {
         Vector2 direction = transform.position - other.position;
-        return Vector2.Dot(direction.normalized,testDirection) > .45f;
+        return Vector2.Dot(direction.normalized,testDirection) > .30f;
     }
 }
 

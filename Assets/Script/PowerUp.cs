@@ -6,7 +6,7 @@ public class PowerUp : MonoBehaviour
 {
     public new Rigidbody2D rigidbody2D;
     public CircleCollider2D circleCollider2D;
-    float gravity = -9.81f;
+    float gravity = -23f;
     Vector2 direction;
     Vector2 velocity;
     public LayerMask layerMask;
@@ -29,6 +29,7 @@ public class PowerUp : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if(GameManager.Instance.running == false) return;
         if(!active) return;
         velocity.x = direction.x * speed;
         if(jumpAble)

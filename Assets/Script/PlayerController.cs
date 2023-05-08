@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(GameManager.Instance.running == false) return;
         if(!active) return;
         Movement();
         if(grounded)
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(GameManager.Instance.running == false) return;
         if(!active) return;
         Vector2 pos = rigidbody2D.position;
         pos += velocity * Time.fixedDeltaTime;

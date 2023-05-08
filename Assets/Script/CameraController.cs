@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    GameManager gameManager;
-    Player player;
-
+    public Player player;
     public float speed = 2; 
-
-    void Start()
-    {
-        gameManager  = GameManager.Instance;
-        player = gameManager.player;
-    }
-
+    
     void LateUpdate()
     {
+        if(GameManager.Instance.running == false) return;
         Vector3 pos = transform.position;
         pos.x = Mathf.Lerp(pos.x,Mathf.Max(pos.x,player.transform.position.x),Time.deltaTime * speed);
         transform.position = pos;

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 21300000, guid: 5772613aa742b794ca05cc22f2162310, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 5572471754299112916, guid: 348251e881855b94584d0f4d09148eb9, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []

@@ -126,5 +126,8 @@ MonoBehaviour:
   emptyBlock: {fileID: 21300000, guid: c1a3d0aab020d8141a753fcd0ce42335, type: 3}
   unBreakAble: 1
   hidden: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
   mushroomPrefab: {fileID: 4844560599367551259, guid: e5cbaa152b14b614d9f67c015a1e1ffc, type: 3}
   animateDuration: 0.65

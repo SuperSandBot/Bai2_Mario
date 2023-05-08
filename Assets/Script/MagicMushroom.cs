@@ -10,6 +10,7 @@ public class MagicMushroom : PowerUp
         if(player != null)
         {        
             Eated();
+            GameManager.Instance.AddScore(1000,transform.position);
             player.PowerUp();
         }
     }

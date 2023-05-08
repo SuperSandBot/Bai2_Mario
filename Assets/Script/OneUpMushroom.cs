@@ -10,6 +10,7 @@ public class OneUpMushroom : PowerUp
         if(player != null)
         {        
             Eated();
+            GameManager.Instance.AddScore(2000,transform.position);
             GameManager.Instance.AddLife();
         }
     }

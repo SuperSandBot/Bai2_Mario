@@ -36,7 +36,7 @@ public class Goomba : MonoBehaviour
         Destroy(this.gameObject, 0.5f);
     }
 
-    async void DeathAnimate()
+    public async void DeathAnimate()
     {
         enemyController.active = false;
         circleCollider2D.enabled = false;
@@ -66,11 +66,13 @@ public class Goomba : MonoBehaviour
         {
             if(player.starPower)
             {
+                GameManager.Instance.AddScore(100,transform.position);
                 DeathAnimate();
                 return;
             }
             if(this.transform.DotTest(player.transform,Vector2.down))
             {
+                GameManager.Instance.AddScore(100,transform.position);
                 Stomped();
             }
             else

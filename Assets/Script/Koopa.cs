@@ -41,7 +41,7 @@ public class Koopa : MonoBehaviour
         spriteRenderer.sprite = stompedSprite;
     }
 
-    async void DeathAnimate()
+    public async void DeathAnimate()
     {
         enemyController.active = false;
         circleCollider2D.enabled = false;
@@ -71,6 +71,7 @@ public class Koopa : MonoBehaviour
         {
             if(player.starPower)
             {
+                GameManager.Instance.AddScore(100,transform.position);
                 DeathAnimate();
                 return;
             }
@@ -91,6 +92,7 @@ public class Koopa : MonoBehaviour
                 }
                 else
                 {
+                    GameManager.Instance.AddScore(100,transform.position);
                     Stomped();
                 }
             }
@@ -116,13 +118,15 @@ public class Koopa : MonoBehaviour
                 Goomba goomba = other.gameObject.GetComponent<Goomba>();
                 if(goomba != null) 
                 {
-                    goomba.Invoke(nameof(DeathAnimate),0);
+                    GameManager.Instance.AddScore(100,transform.position);
+                    goomba.DeathAnimate();
                     return;
                 }
                 Koopa koopa = other.gameObject.GetComponent<Koopa>();
                 if(koopa != null)
                 {
-                    koopa.Invoke(nameof(DeathAnimate),0);
+                    GameManager.Instance.AddScore(100,transform.position);
+                    koopa.DeathAnimate();
                     return;
                 }
             }
