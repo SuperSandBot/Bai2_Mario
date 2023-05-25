@@ -19,8 +19,7 @@ public class PlayerAnimation : MonoBehaviour
     
     public bool active = true;
 
-
-    void Start()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         controller = GetComponentInParent<PlayerController>();

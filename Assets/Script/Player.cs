@@ -61,11 +61,13 @@ public class Player : MonoBehaviour
 
     public void StarPowerOn()
     {
+        SoundManager.PlayMusic(Sound.StartPower);
         starPower = true;
         InvokeRepeating(nameof(StarPowerAnimate), 0, .02f);
     }
     public void StarPowerOff()
     {
+        SoundManager.PlayLevelBGM();
         starPower = false;
         bigMario.spriteRenderer.color = Color.white;
         miniMario.spriteRenderer.color = Color.white;
@@ -83,6 +85,7 @@ public class Player : MonoBehaviour
 
     public async void Grow()
     {
+        SoundManager.PlaySound(Sound.Grow);
         IsBig = true;
         changing = true;
         playerController.active = false;
@@ -100,6 +103,7 @@ public class Player : MonoBehaviour
 
     public async void Shrink()
     {
+        SoundManager.PlaySound(Sound.Shrink);
         IsBig = false;
         changing = true;
         playerController.active = false;
@@ -117,6 +121,8 @@ public class Player : MonoBehaviour
 
     public async void DeathAnimate(float jumpHeight)
     {
+        SoundManager.StopMusic();
+        SoundManager.PlaySound(Sound.Die);
         miniMario.Death();
         float elapsed = 0f;
         float gravity = -36f;

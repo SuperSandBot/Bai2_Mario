@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Player player;
     public new Rigidbody2D rigidbody2D;
     public Vector2 velocity;
     Camera cam;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
         velocity = Vector2.zero;
         cam = Camera.main;
     }
@@ -45,7 +47,18 @@ public class PlayerController : MonoBehaviour
     public void Grounded()
     {  
         velocity.y = Mathf.Max(velocity.y,0f);
-        if(Input.GetButtonDown("Jump")) velocity.y = JumpForce;
+        if(Input.GetButtonDown("Jump"))
+        {
+            if(player.IsBig)
+            {
+                SoundManager.PlaySound(Sound.JumpBig);
+            }
+            else
+            {
+                SoundManager.PlaySound(Sound.JumpSmall);
+            }
+            velocity.y = JumpForce;
+        } 
     }
     public void Movement()
     {

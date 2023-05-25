@@ -22,7 +22,11 @@ public class Block : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (hitCount == 0) return;
+        if (hitCount == 0)
+        {
+            SoundManager.PlaySound(Sound.Bump);
+            return;
+        }
         if (animating) return;
         Player player = other.gameObject.GetComponent<Player>();
         if (player != null)
@@ -58,6 +62,7 @@ public class Block : MonoBehaviour
 
     public void BlockBreak()
     {
+        SoundManager.PlaySound(Sound.Break);
         if (hidden) spriteRenderer.enabled = true;
         BlockBreakAnimate();
         AboveCheck();

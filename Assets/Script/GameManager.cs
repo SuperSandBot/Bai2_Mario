@@ -40,7 +40,17 @@ public class GameManager : MonoBehaviour
         {
             running = !running;
             uIManager.Pause.SetActive(!running);
+            if(running == false)
+            {
+                SoundManager.StopMusic();
+                SoundManager.PlaySound(Sound.Pause);
+            }
+            else
+            {
+                SoundManager.ContinueMusic();
+            }
         }
+
         if(running == false) return;
 
         time -= Time.deltaTime;
@@ -66,10 +76,12 @@ public class GameManager : MonoBehaviour
 
     public async void NextStage()
     {
+        SoundManager.StopMusic();
+        SoundManager.PlaySound(Sound.StageClear);
         uIManager.blackScreen.SetActive(true);
         await Task.Delay(500);
         uIManager.SetLiveTXT(lives);
-        await Task.Delay(2000);
+        await Task.Delay(5000);
         time = 400;
         score = 0;
         LoadLevel(world, stage + 1);
@@ -93,6 +105,7 @@ public class GameManager : MonoBehaviour
 
     public async void ResetLevel()
     {
+        SoundManager.StopMusic();
         uIManager.blackScreen.SetActive(true);
         await Task.Delay(500);
         uIManager.SetLiveTXT(lives);
@@ -113,12 +126,15 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        SoundManager.StopMusic();
+        SoundManager.PlaySound(Sound.Gameover);
         uIManager.GameOver.SetActive(true);
         Invoke(nameof(NewGame),5f);
     }
 
     public void AddCoin()
     {
+        SoundManager.PlaySound(Sound.Coin);
         coins++;
         if(coins > 99)
         {
@@ -131,6 +147,7 @@ public class GameManager : MonoBehaviour
 
     public void AddLife()
     {
+        SoundManager.PlaySound(Sound.LiveUp);
         uIManager.CreatePopUp("1UP",player.transform.position);
         lives++;
     }

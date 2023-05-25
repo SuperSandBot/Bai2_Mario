@@ -33,6 +33,7 @@ public class Koopa : MonoBehaviour
 
     public void Stomped()
     {
+        SoundManager.PlaySound(Sound.Stomp);
         shelled = true;
         enemyController.direction = Vector2.zero;
         enemyController.layerMask = LayerMask.GetMask("Platform");
@@ -43,6 +44,7 @@ public class Koopa : MonoBehaviour
 
     public async void DeathAnimate()
     {
+        SoundManager.PlaySound(Sound.Kick);
         enemyController.active = false;
         circleCollider2D.enabled = false;
         CancelInvoke();
@@ -78,7 +80,7 @@ public class Koopa : MonoBehaviour
             if(this.transform.DotTest(player.transform,Vector2.down))
             {
                 if(shelled)
-                {
+                {     
                     if(shellMoving) 
                     {
                         ShellMovement(Vector2.zero);
@@ -141,6 +143,7 @@ public class Koopa : MonoBehaviour
 
     public void ShellMovement(Vector2 direction)
     {
+        SoundManager.PlaySound(Sound.Stomp);
         enemyController.speed = 12;
         enemyController.direction = direction;
     }

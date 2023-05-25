@@ -123,6 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitCount: -1
-  emptyBlock: {fileID: 0}
+  emptyBlock: {fileID: 21300000, guid: c1a3d0aab020d8141a753fcd0ce42335, type: 3}
   unBreakAble: 0
   hidden: 0

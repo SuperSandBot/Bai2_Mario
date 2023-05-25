@@ -29,6 +29,7 @@ public class Goomba : MonoBehaviour
 
     public void Stomped()
     {
+        SoundManager.PlaySound(Sound.Stomp);
         enemyController.active = false;
         circleCollider2D.enabled = false;
         CancelInvoke();
@@ -38,6 +39,7 @@ public class Goomba : MonoBehaviour
 
     public async void DeathAnimate()
     {
+        SoundManager.PlaySound(Sound.Kick);
         enemyController.active = false;
         circleCollider2D.enabled = false;
         CancelInvoke();
